@@ -1,0 +1,323 @@
+@font-face {
+    font-family: "Outfit";
+    src: url("./Fonts/Outfit-ExtraLight.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: "Monoton";
+    src: url("./Fonts/Monoton-Regular.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: "Rosca";
+    src: url("./Fonts/rosca.otf") format("truetype");
+}
+
+@font-face {
+    font-family: "Gristela";
+    src: url("./Fonts/gristela.otf") format("truetype");
+}
+
+@font-face {
+    font-family: "Righteous";
+    src: url("./Fonts/Righteous-Regular.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: "Poppins";
+    src: url("./Fonts/Poppins-Light.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: "Roboto";
+    src: url("./Fonts/Roboto-VariableFont_wdth\,wght.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: "Quicksand";
+    src: url("./Fonts/Quicksand-VariableFont_wght.ttf");
+}
+
+* {
+    padding: 0;
+    margin: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background-image: url("./Images/bg\ pic.png");
+    box-sizing: border-box;
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100%;
+    height: 100vh; /* Fallback for older browsers */
+    height: 100dvh;
+    overflow-x: hidden
+;
+    font-family: "Quicksand";
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: column;
+    overflow-x: hidden;
+}
+
+nav {
+    height: 10vw;
+    max-height: 3.5rem;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+
+}
+
+nav .username {
+    font-weight: 700;
+    cursor: pointer;
+    color: #fff;
+}
+
+nav a {
+    color: grey;
+    font-weight: 700;
+    font-size: 2rem;
+}
+
+
+a {
+    text-decoration: none;
+    color: #fff;
+}
+
+.orderTable {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    /* background-color: #e7e7e7; */
+    position: relative;
+
+}
+
+.orderTable .passiveOrders, .orderTable .activeOrders {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.passiveOrders p {
+    color: rgb(236, 193, 244);
+    font-weight: 600;
+}
+
+.activeOrders p {
+    color: #0f0;
+    font-weight: 600;
+}
+
+.headings {
+    height: 15%;
+    width: 100%;
+    display: grid;
+    place-items: center;
+}
+
+.orderTable ul {
+    list-style: none;
+}
+
+.orderTable ul li {
+    width: 100%;
+    padding: 20px 0;
+    /* background-color: #fff; */
+    cursor: pointer;
+    text-align: center;
+}
+
+#tab {
+    width: 30vw;
+    min-width: 300px;
+    background-color: #535252;
+    height: 3rem;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;   
+    border-radius: 20px;
+    padding: 5px;
+}
+
+.tabItem {
+    cursor: pointer;
+    color: #fff;
+    height: 100%;
+    width: 100%;
+    max-width: 300px;
+    text-align: center;
+    display: grid;
+    font-size: 15px;
+    font-weight: 700;
+    place-items: center;
+    transition: all .35s ease-in-out;
+    border-radius: 20px;
+}
+
+#mover h2 {
+    width: 100%;
+    text-align: left;
+    margin-left: 50px;
+    color: #fff;
+}
+
+
+
+#mover p {
+
+    width: 100%;
+    padding: 7px;
+    text-align: left;
+    margin-left: 50px;
+    align-self: flex-start;
+
+}
+
+#passiveTab {
+    background-color: #fff;
+    color: #000;
+}
+
+#activeTab {
+    background-color: transparent;
+    color: #fff;
+}
+
+.active #passiveTab {
+    background-color: transparent;
+    color: #fff;
+}
+
+.active #activeTab {
+    background-color: #fff;
+    color: #000;
+}
+
+.active #activeTab:hover {
+    color: #000;
+    background-color: white;
+}
+
+#passiveTab:hover {
+    color: #000;
+    background-color: white;
+}
+
+#activeTab:hover,.active #passiveTab:hover {
+    background-color: #bcb8b81f;
+    color: #fff;
+    transition: all .35s ease-in-out;
+}
+
+
+
+#mover {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+}
+
+#mover .container {
+    width: 200%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    left: 0;
+    transition: left .35s ease-in-out;
+}
+
+#activeOrderList {
+    width: 100%;
+    height: 70%;
+    /* background-color: #ffffff68; */
+}
+
+#passiveOrderList {
+    width: 100%;
+    height: 70%;
+    /* background-color: #ffffff68; */
+}
+
+footer {
+    text-align: center;
+    color: #fff;
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
+
+button[type="submit"] {
+    width: 100px;
+    height: 50px;
+    border-radius: 12px;
+    border: none;
+    cursor: pointer;
+}
+
+table {
+    width: 90%;
+    max-width: 1000px;
+    border-collapse: collapse;
+    background-color: #4c4e4c;
+    margin-top: 40px;
+}
+
+table th {
+    color: #fff;
+    font-weight: 600;
+    text-align: left;
+    background-color: #343434;
+}
+
+table th:nth-child(2) {
+    width: 100px;
+}
+
+table tr td:nth-child(2) {
+    width: 100px;
+}
+
+table th, table td {
+    padding: 10px;
+}
+
+table td {
+    color: #fff;
+    text-align: left;
+}
+
+
+table tr:nth-of-type(2n) {
+    background-color: #ffffff1f;
+}
+
+table tr {
+    height: 50px;
+}

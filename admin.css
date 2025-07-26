@@ -1,0 +1,937 @@
+:root {
+  --color-white: #ffffff;
+  --color-dark: #000000;
+  --color-primary: #339998;
+  --color-secondary: #343434;
+  --color-accent: #45fe34;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  width: 100%;
+  height: 100%;
+  background-color: var(--color-secondary);
+  font-family: "Outfit";
+  overflow-y: hidden;
+  overflow-x: hidden;
+}
+
+body nav.upper-label {
+  width: 100vw;
+  height: 5rem;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: inset 0px 0px 2px #3399974a;
+  position: fixed;
+  background-color: var(--color-secondary);
+  top: 0;
+  left: 0;
+  z-index: 1000;
+}
+
+body nav.upper-label .currentPage {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  color: var(--color-white);
+  cursor: pointer;
+  width: fit-content;
+  transition: all .35s ease-in-out;
+  padding: 0 5px;
+  padding-left: 20px;
+}
+
+body nav.upper-label .userProfile {
+  color: var(--color-white);
+  width: fit-content;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding-right: 50px;
+}
+
+body nav.upper-label .userProfile span {
+  text-transform: capitalize;
+}
+
+body nav.upper-label .currentPage:hover {
+  color: var(--color-primary);
+  transition: all .35s ease-in-out;
+}
+
+.currentPage svg {
+  transition: all .35s ease-in-out;
+  fill: var(--color-white);
+}
+
+.currentPage:hover svg {
+  fill: var(--color-primary);
+  transition: all .35s ease-in-out;
+}
+
+body nav.upper-label .searchBar {
+  width: 50%;
+  height: 100%;
+  display: grid;
+  place-items: center;
+}
+
+body nav.upper-label .searchBar input {
+  width: 80%;
+  height: 40%;
+  border-radius: 10px;
+  border: 1px solid #ffffff28;
+  background-color: transparent;
+  color: #fff;
+  outline: none;
+  padding-left: 5px;
+  font-family: inherit;
+}
+
+
+body nav.upper-label .searchBar input:focus {
+  /* border: 1px solid #bac9ec; */
+  border: none;
+  box-shadow: 0px 0px 5px #bac9ec;
+  transition: all .35s ease-in-out;
+}
+
+
+body .sideBar {
+  top: 0;
+  left: -500px;
+  position: absolute;
+  width: 40vw;
+  max-width: 350px;
+  height: 100%;
+  max-height: 100dvh;
+  background-color: var(--color-secondary);
+  display: grid;
+  grid-template-rows: 5rem 1fr 2rem;
+  place-items: center;
+  box-shadow: inset 0px 0px 2px #3399974a;
+  transition: all .35s ease-in-out;
+  position: fixed;
+  z-index: 1000;
+}
+
+body .sideBar .logoSection {
+  width: 100%;
+  height: 100%;
+  display: grid;
+  place-items: center;
+
+}
+
+body .sideBar .logoSection a {
+  text-decoration: none;
+  color: #fff;
+  font-size: 125%;
+}
+
+body .sideBar .logoSection a strong {
+  color: var(--color-primary);
+}
+
+body .sideBar .pagesSelector {
+  width: 100%;
+  height: 100%;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+body .sideBar .pagesSelector ul {
+  width: 100%;
+  height: 100%;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+body .sideBar .pagesSelector ul li {
+  width: 100%;
+  height: 20%;
+  /* border: 2px solid var(--color-primary); */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+body .sideBar .pagesSelector ul li a {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  text-decoration: none;
+}
+
+body .sideBar .pagesSelector ul li a:hover {
+  background-color: var(--color-primary);
+  transition: all .35s ease-in-out;
+}
+
+main.mainStuff {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+main.mainStuff .mainStuffContainer {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+main.mainStuff .mainStuffContainer .mainStuffContent {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+
+main.mainStuff .mainStuffContainer .mainStuffContent .page {
+  min-height: calc(100dvh - 5rem); /* or 100vh if 5rem is nav height */
+  padding-top: 0; /* To visually match scroll-margin and spacing */
+  width: 100%;
+  box-sizing: border-box;
+  scroll-margin-top: 5rem; /* ensure anchor scroll lands nicely */
+}
+
+main.mainStuff .mainStuffContainer .mainStuffContent .page .container {
+  height: 100%;
+  width: 100%;
+}
+
+main.mainStuff .mainStuffContainer .mainStuffContent .page .container .content {
+  height: 100%;
+  width: 100%;
+}
+
+main.mainStuff .mainStuffContainer .mainStuffContent .page#dashboard {
+  padding-top: 0;
+    width: 100%;
+  /* height: calc(100dvh - 5rem); accounts for sticky navbar */
+  height: 100vh;
+  height: 100dvh;
+}
+
+main.mainStuff .mainStuffContainer .mainStuffContent .page#dashboard .container {
+  width: 100%;
+  height: 100%;
+}
+
+main.mainStuff .mainStuffContainer .mainStuffContent .page#dashboard .container .content{
+  padding-top: 0;  
+  display: grid;
+  grid-template-rows: 6rem 1fr;
+  height: 100%;
+  width: 100%;
+}
+
+main.mainStuff .mainStuffContainer .mainStuffContent .page#dashboard .container .content .recentOrdersContainer  {
+  width: 100%;
+  height: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  place-items: center;
+  transition: all 0.35s ease-in-out;
+  cursor: pointer;
+}
+
+main.mainStuff .mainStuffContainer .mainStuffContent .page#dashboard .container .content .recentOrdersContainer .recentOrders {
+  width: 80%;
+  height: 80%;
+  display: grid;
+  grid-template-rows: 2rem 1fr;
+  place-items: center;
+  border-radius: 10px;
+  background-color: #ffffff89;
+}
+
+main.mainStuff .mainStuffContainer .mainStuffContent .page#dashboard .container .content .topSellingProducts {
+  width: 80%;
+  height: 80%;
+  display: grid;
+  grid-template-rows: 2rem 1fr;
+  place-items: center;
+  border-radius: 10px;
+  background-color: #bac9ec;
+  margin-bottom: 10px;
+  transition: all 0.35s ease-in-out;
+  cursor: pointer;
+}
+
+main.mainStuff .mainStuffContainer .mainStuffContent .page#dashboard .container .content .recentOrdersContainer .recentOrders:hover, 
+main.mainStuff .mainStuffContainer .mainStuffContent .page#dashboard .container .content .topSellingProducts:hover {
+  transform: scale(1.00625);
+  transition: all 0.35s ease-in-out;
+}
+
+
+main.mainStuff .mainStuffContainer .mainStuffContent .page#dashboard .container .content .figures {
+  width: 100%;
+  height: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  place-items: center;
+  margin-top: 10px;
+}
+
+@media screen and (max-width: 960px) {
+  main.mainStuff .mainStuffContainer .mainStuffContent .page#dashboard .figures {
+  width: 100%;
+  height: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  place-items: center;
+  margin-top: 10px;
+  }
+}
+
+main.mainStuff .mainStuffContainer .mainStuffContent .page#dashboard .figures .figure {
+  width: 90%;
+  max-width: 200px;
+  height: 100%;
+  background-color: #45fe34;
+  display: grid;
+  grid-template-rows: 60% 20% 10%;
+  place-items: center;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+main.mainStuff .mainStuffContainer .mainStuffContent .page#dashboard .figures .figure span:first-child {
+  text-align: center;
+}
+
+main.mainStuff .mainStuffContainer .mainStuffContent .page#dashboard .figures .figure {
+  background-color: #fff;
+}
+
+.block {
+  width: 100%;
+  height: 5rem;
+}
+
+.logoutScreenPopup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1999;
+}
+
+.logoutScreenPopup.hidden {
+  display: none;
+}
+
+.logoutPopup {
+  background-color: var(--color-white);
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.logoutPopup h2 {
+  font-family: "Quicksand";
+  font-size: 1.5rem;
+  color: var(--color-dark);
+  margin-bottom: 20px;
+}
+
+.logoutPopup .buttons {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.logoutPopup .buttons button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  background-color: #ce1a1a;
+  color: var(--color-white);
+  font-family: "Quicksand";
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+
+.logoutPopup .buttons button:hover {
+  background-color: #ad4242;
+  color: var(--color-white);
+}
+
+#cancelLogout {
+  background-color: #f0f0f0;
+  color: var(--color-dark);
+}
+
+#cancelLogout:hover {
+  background-color: #d0d0d0;
+  color: var(--color-dark);
+}
+
+.sideBar .logoutSection span:hover {
+  background-color: var(--color-primary);
+  color: var(--color-white);
+}
+
+.sideBar .logoutSection span {
+  text-decoration: none;
+  color: var(--color-dark);
+  padding: 10px 20px;
+  border-radius: 5px;
+  background-color: #f0f0f0;
+  transition: all 0.3s ease-in-out;
+  cursor: pointer;
+}
+
+
+main.mainStuff .mainStuffContainer .mainStuffContent .page#products .container {
+  width: 100%;
+  height: 100vh; /* Fallback for older browsers */
+  height: 100dvh; 
+
+}
+
+main.mainStuff .mainStuffContainer .mainStuffContent .page#products .container .content {
+  width: 100%;
+  height: 100%;
+  display: grid;
+  grid-template-rows: 4rem 1fr;
+  place-items: center;
+  position: relative;
+}
+
+#addProductButton {
+  width: fit-content;
+  padding: 0 25px;
+  height: 50px;
+  position: absolute;
+  bottom: 5rem;
+  right: 20px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--color-primary);
+  color: var(--color-white);
+  font-family: "Quicksand";
+  font-size: 1.5rem;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.35s ease-in-out;
+
+}
+
+#addProductButton::after {
+  transition: all 0.35s ease-in-out;
+}
+
+#addProductButton:hover {
+  background-color: #2a7f7f;
+  transition: all 0.35s ease-in-out;
+}
+
+#addProductButton:hover::after {
+  content: "Add Product";
+  /* position: absolute; */
+  /* background-color: var(--color-primary); */
+  color: var(--color-white);
+  padding: 5px 10px;
+  border-radius: 5px;
+  font-family: "Quicksand";
+  font-size: 0.9rem;
+  transition: all 0.35s ease-in-out;
+  opacity: 1;
+}
+
+.formContainer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: grid;
+  grid-template-columns: 1fr;
+  place-items: center;
+  z-index: 1000;
+}
+
+.formContainer.hidden {
+  display: none;
+}
+
+.formContainer form {
+  width: 90%;
+  max-width: 600px;
+  height: fit-content;
+  min-height: 200px;
+  background-color: var(--color-white);
+  /* padding: 20px; */
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  place-content: center;
+}
+
+form h1 {
+  font-family: "Quicksand";
+  grid-column: 1/-1;
+  width: 100%;
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+.formContainer form .formGroup {
+  width: 90%;
+  display: grid;
+  place-items: center;
+  margin-bottom: 15px;
+}
+
+.formContainer form .formGroup label {
+  font-family: "Quicksand";
+  font-size: 1.2rem;
+  color: var(--color-dark);
+  margin-bottom: 5px;
+}
+
+.formContainer form .formGroup input,
+.formContainer form .formGroup select {
+  width: 100%;
+  height: 40px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  padding: 0 10px;
+  font-family: "Quicksand";
+  font-size: 1rem;
+}
+
+.formContainer form .formGroup input:focus,
+.formContainer form .formGroup select:focus { 
+  border: 1px solid var(--color-primary);
+  box-shadow: 0px 0px 5px var(--color-primary);
+  transition: all 0.35s ease-in-out;
+}
+
+.formContainer form button {
+  width: fit-content;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  background-color: var(--color-primary);
+  color: var(--color-white);
+  font-family: "Quicksand";
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.35s ease-in-out;
+}
+
+.formContainer form button:hover {
+  background-color: #2a7f7f;
+  transition: all 0.35s ease-in-out;
+}
+
+.categories {
+  width: 100%;
+  height: 100%;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  place-items: center;
+  gap: 12px;
+  /* background-color: #ffffff2b; */
+}
+
+.categories .categoryItem {
+  width: 90%;
+  max-width: 200px;
+  height: 50px;
+  background-color: #ffffff;
+  padding: 0 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.35s ease-in-out;
+}
+
+.categories .categoryItem.selected {
+  background-color: var(--color-primary);
+  color: var(--color-white);
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+.categories .categoryItem:hover {
+  background-color: var(--color-primary);
+  color: var(--color-white);
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  transition: all 0.35s ease-in-out;
+}
+
+.categoryDisplay {
+  width: 80%;
+  height: 80%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 10px;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+.categoryDisplay::-webkit-scrollbar {
+  width: 8px;
+  background-color: #ffffff67;
+  border-radius: 10px;
+}
+
+.categoryDisplay::-webkit-scrollbar-thumb {
+  background-color: #000;
+  border-radius: 10px;
+}
+
+#products .container {
+  position: relative;
+}
+
+.categoryDisplay .container {
+  width: 100%;
+  height: 100%;
+  
+}
+
+.categoryDisplay .container .content {
+  width: 100%;
+  height: 100%;
+  display: grid;
+  grid-template-rows: 2rem 1fr;
+  place-items: center;
+  /* position: relative; */
+}
+
+.categoryDisplay .container .content  .categoryItem {
+  width: 100%;
+  height: 100%;
+  display: grid;
+  place-items: center;
+}
+
+.categoryDisplay .container .content  .categoryItem .productsList {
+  width: 90%;
+  height: 100%;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  place-items: center;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  position: relative;
+}
+
+
+
+.categoryDisplay .container .content  .categoryItem .productsList .product {
+  width: 250px;
+  height: 250px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #ffffff;
+  border-radius: 10px;
+  margin-bottom: 10px;
+  padding: 10px;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+}
+
+.categoryDisplay .container .content  .categoryItem .productsList .product .productDetails {
+  width: 100%;
+  height: 100%;
+  display: grid;
+  grid-template-rows: 1fr 1fr 50px 50px;
+  place-items: center;
+}
+
+.categoryDisplay .container .content  .categoryItem .productsList .product .productDetails h3 {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: "Quicksand";
+  font-size: 1.5rem;
+  color: var(--color-dark);
+  text-wrap: wrap;
+  text-align: center;
+}
+
+.categoryDisplay .container .content  .categoryItem .productsList .product button {
+  border-radius: 12px;
+  padding: 10px 25px;
+  border: none;
+  cursor: pointer;
+}
+
+.categoryDisplay .container .content  .categoryItem .productsList .product button.editProductButton {
+  background-color: #ebeb51;
+  transition: all .35s ease-in-out;
+}
+.categoryDisplay .container .content  .categoryItem .productsList .product button.editProductButton:hover {
+  background-color: #dede9a;  
+  transition: all .35s ease-in-out;
+}
+
+.categoryDisplay .container .content  .categoryItem .productsList .product button.editProductButton svg {
+  fill: #fff;
+}
+
+.categoryDisplay .container .content  .categoryItem .productsList .product button.deleteProductButton {
+  background-color: #ed5f5f;
+  transition: all .35s ease-in-out;
+
+}
+.categoryDisplay .container .content  .categoryItem .productsList .product button.deleteProductButton:hover {
+  background-color: #de9a9a;
+  transition: all .35s ease-in-out;
+}
+
+.categoryDisplay .container .content  .categoryItem .productsList .product button.deleeProductButton svg {
+  fill: #fff;
+}
+
+h2.categoryItemName {
+  width: 100%;
+  height: fit-content;
+  padding: 10px 0;
+  display: flex;
+  align-items: center;
+  font-family: "Quicksand";
+  font-size: 1.5rem;
+  color: var(--color-white);
+  background-color: var(--color-secondary);
+  position: sticky;
+  top: 0;
+  left: 0;
+  z-index: 100;
+}
+
+.loader-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+
+#loader .spinner {
+  width: 50px;
+  height: 50px;
+  border: 6px solid #ffffff;
+  border-top-color: var(--color-primary);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+
+@media screen and (max-width: 500px) {
+  .categoryDisplay .container .content  .categoryItem .productsList {
+    width: 90%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    position: relative;
+  }
+
+  .categoryDisplay .container .content  .categoryItem .productsList .product {
+    width: 100%;
+    height: fit-content;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    background-color: #ffffff;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    padding: 10px;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
+  }
+
+  .categoryDisplay .container .content  .categoryItem .productsList .product .productDetails {
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr 50px 50px;
+    grid-template-rows: 1fr;
+    place-items: center;
+  }
+
+  .categoryDisplay .container .content  .categoryItem .productsList .product .productDetails h3 {
+    width: 100%;
+    height: fit-content;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: "Quicksand";
+    font-size: .8rem;
+    color: var(--color-dark);
+    /* text-wrap: wrap; */
+    text-align: center;
+  }
+
+  .categoryDisplay .container .content  .categoryItem .productsList .product button {
+    border-radius: 12px;
+    padding: 10px 10px;
+    border: none;
+    cursor: pointer;
+  }
+}
+
+main.mainStuff .mainStuffContainer .mainStuffContent .page#orders {
+  width: 100%;
+  /* height: calc(100dvh - 5rem); accounts for sticky navbar */
+  scroll-margin-top: 5rem; /* ensure anchor scroll lands nicely */
+  height: 100vh;
+  height: 100dvh;
+}
+
+
+main.mainStuff .mainStuffContainer .mainStuffContent .page#orders .container {
+  width: 100%;
+  height: 100%;
+}
+
+main.mainStuff .mainStuffContainer .mainStuffContent .page#orders .container .content {
+  width: 100%;
+  height: 100%;
+  /* background-color: #ffffff49; */
+  display: grid;
+  grid-template-columns: 1fr;
+  place-items: center;
+}
+
+main.mainStuff .mainStuffContainer .mainStuffContent .page#orders .container .content .recentOrdersPage {
+  background: #45fe34;
+  width: 90%; /* or clamp(...) for responsive sizing */
+  max-width: 600px;
+  height: fit-content;
+  height: 350px;
+}
+
+main.mainStuff .mainStuffContainer .mainStuffContent .page#orders .container .content .newOrdersContainer {
+  background: #3399974a;
+  width: 90%; /* or clamp(...) for responsive sizing */
+  max-width: 900px;
+  height: fit-content;
+  min-height: 500px;
+  /* height: 350px; */
+  color: #fff;
+}
+
+input[type="file"]::file-selector-button {
+  background-color: var(--color-primary);
+  width: fit-content;
+  height: 100%;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+}
+
+.orderr {
+  max-width: 500px;
+  margin: 20px auto;
+  padding: 20px 25px;
+  background-color: #f9f9f9;
+  border-radius: 12px;
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.1);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #333;
+  line-height: 1.6;
+}
+
+.orderr h3 {
+  font-size: 1.3rem;
+  margin-bottom: 10px;
+  color: #222;
+}
+
+.orderr p {
+  margin-bottom: 10px;
+}
+
+.orderr strong {
+  color: #000;
+}
+
+.done {
+  display: inline-block;
+  margin-top: 15px;
+  padding: 10px 20px;
+  background-color: var(--color-primary); /* Green */
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background-color 0.3s ease;
+}
+
+.done:hover {
+  background-color: #45a049;
+}

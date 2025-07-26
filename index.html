@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NovaHub</title>  
+    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="./Images/novahublogo.png" type="image/x-icon">
+</head>
+<body>
+    <main class="everything" id="everything">
+        <!-- <div class="name--text"><a href="index.html" class="inactive">NovaHub</a></div> -->
+        <div id="searchbar">
+            <input type="search" name="search" id="search" placeholder="Search">
+            <ul class="searched--list" id="searchedList"></ul>
+        </div>
+
+        <div class="menubar" id="menubar">
+            <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e8eaed" id="menu--button"><path d="M120-240v-80h720v80H120Zm0-200v-80h720v80H120Zm0-200v-80h720v80H120Z"/></svg>
+            <svg xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 24 24" width="24px" height="24px" id="menu--close--button"><path d="M 19.990234 2.9863281 A 1.0001 1.0001 0 0 0 19.292969 3.2929688 L 12 10.585938 L 4.7070312 3.2929688 A 1.0001 1.0001 0 0 0 3.9902344 2.9902344 A 1.0001 1.0001 0 0 0 3.2929688 4.7070312 L 10.585938 12 L 3.2929688 19.292969 A 1.0001 1.0001 0 1 0 4.7070312 20.707031 L 12 13.414062 L 19.292969 20.707031 A 1.0001 1.0001 0 1 0 20.707031 19.292969 L 13.414062 12 L 20.707031 4.7070312 A 1.0001 1.0001 0 0 0 19.990234 2.9863281 z"/></svg>
+        </div>
+        <ul class="menu" id="menu">
+            <li class="item">
+                <a href="index.html" class="link">
+                    <svg xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 48 48" width="24px" height="24px"><path d="M 23.951172 4 A 1.50015 1.50015 0 0 0 23.072266 4.3222656 L 8.859375 15.519531 C 7.0554772 16.941163 6 19.113506 6 21.410156 L 6 40.5 C 6 41.863594 7.1364058 43 8.5 43 L 18.5 43 C 19.863594 43 21 41.863594 21 40.5 L 21 30.5 C 21 30.204955 21.204955 30 21.5 30 L 26.5 30 C 26.795045 30 27 30.204955 27 30.5 L 27 40.5 C 27 41.863594 28.136406 43 29.5 43 L 39.5 43 C 40.863594 43 42 41.863594 42 40.5 L 42 21.410156 C 42 19.113506 40.944523 16.941163 39.140625 15.519531 L 24.927734 4.3222656 A 1.50015 1.50015 0 0 0 23.951172 4 z M 24 7.4101562 L 37.285156 17.876953 C 38.369258 18.731322 39 20.030807 39 21.410156 L 39 40 L 30 40 L 30 30.5 C 30 28.585045 28.414955 27 26.5 27 L 21.5 27 C 19.585045 27 18 28.585045 18 30.5 L 18 40 L 9 40 L 9 21.410156 C 9 20.030807 9.6307412 18.731322 10.714844 17.876953 L 24 7.4101562 z"/></svg>
+                    Home
+                </a>
+            </li>
+            <li class="item">
+                <a href="#foreignSim" class="link">
+                    <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e8eaed"><path d="M280-200h80v-80h-80v80Zm0-160h80v-160h-80v160Zm160 160h80v-160h-80v160Zm0-240h80v-80h-80v80Zm160 240h80v-80h-80v80Zm0-160h80v-160h-80v160ZM240-80q-33 0-56.5-23.5T160-160v-480l240-240h320q33 0 56.5 23.5T800-800v640q0 33-23.5 56.5T720-80H240Zm0-80h480v-640H434L240-606v446Zm0 0h480-480Z"/></svg>
+                    Foreign Sim
+                </a>
+            </li>
+            <li class="item">
+                <a href="#giftCards" class="link">
+                    <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e8eaed"><path d="M160-280v80h640v-80H160Zm0-440h88q-5-9-6.5-19t-1.5-21q0-50 35-85t85-35q30 0 55.5 15.5T460-826l20 26 20-26q18-24 44-39t56-15q50 0 85 35t35 85q0 11-1.5 21t-6.5 19h88q33 0 56.5 23.5T880-640v440q0 33-23.5 56.5T800-120H160q-33 0-56.5-23.5T80-200v-440q0-33 23.5-56.5T160-720Zm0 320h640v-240H596l84 114-64 46-136-184-136 184-64-46 82-114H160v240Zm200-320q17 0 28.5-11.5T400-760q0-17-11.5-28.5T360-800q-17 0-28.5 11.5T320-760q0 17 11.5 28.5T360-720Zm240 0q17 0 28.5-11.5T640-760q0-17-11.5-28.5T600-800q-17 0-28.5 11.5T560-760q0 17 11.5 28.5T600-720Z"/></svg>
+                    Gift Cards
+                </a>
+            </li>
+            <li class="item">
+                <a href="#cvc" class="link">
+                    <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e8eaed"><path d="M880-720v480q0 33-23.5 56.5T800-160H160q-33 0-56.5-23.5T80-240v-480q0-33 23.5-56.5T160-800h640q33 0 56.5 23.5T880-720Zm-720 80h640v-80H160v80Zm0 160v240h640v-240H160Zm0 240v-480 480Z"/></svg>
+                    Virtual Credit Cards
+                </a>
+            </li>
+            <li class="item">
+                <a href="#pc" class="link">
+                    <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e8eaed"><path d="M560-440q-50 0-85-35t-35-85q0-50 35-85t85-35q50 0 85 35t35 85q0 50-35 85t-85 35ZM280-320q-33 0-56.5-23.5T200-400v-320q0-33 23.5-56.5T280-800h560q33 0 56.5 23.5T920-720v320q0 33-23.5 56.5T840-320H280Zm80-80h400q0-33 23.5-56.5T840-480v-160q-33 0-56.5-23.5T760-720H360q0 33-23.5 56.5T280-640v160q33 0 56.5 23.5T360-400Zm440 240H120q-33 0-56.5-23.5T40-240v-440h80v440h680v80ZM280-400v-320 320Z"/></svg>
+                    Payment Cards
+                </a>
+            </li>
+            <li class="item">
+                <a href="#tpc" class="link">
+                    <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e8eaed"><path d="m159-168-34-14q-31-13-41.5-45t3.5-63l72-156v278Zm160 88q-33 0-56.5-23.5T239-160v-240l106 294q3 7 6 13.5t8 12.5h-40Zm206-4q-32 12-62-3t-42-47L243-622q-12-32 2-62.5t46-41.5l302-110q32-12 62 3t42 47l178 488q12 32-2 62.5T827-194L525-84Zm-86-476q17 0 28.5-11.5T479-600q0-17-11.5-28.5T439-640q-17 0-28.5 11.5T399-600q0 17 11.5 28.5T439-560Zm58 400 302-110-178-490-302 110 178 490ZM319-650l302-110-302 110Z"/></svg>
+                    Telco Pre-paid Cards
+                </a>
+            </li>
+            <li class="item">
+                <a href="#subs" class="link">
+                    <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e8eaed"><path d="M160-440v80h640v-80H160Zm0-440h640q33 0 56.5 23.5T880-800v440q0 33-23.5 56.5T800-280H640v200l-160-80-160 80v-200H160q-33 0-56.5-23.5T80-360v-440q0-33 23.5-56.5T160-880Zm0 320h640v-240H160v240Zm0 200v-440 440Z"/></svg>
+                    Subscriptions
+                </a>
+            </li>
+        </ul>
+        <div class="cart" id="cart">
+            <div class="container" id="cart--container">
+                <div class="content" id="cart">
+                    <svg xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 24 24" width="24px" height="24px" id="cartButton"><path d="M 1.25 3 A 1.250125 1.250125 0 1 0 1.25 5.5 L 1.796875 5.5 C 1.9214018 5.5 2.0141793 5.574019 2.0410156 5.6953125 L 4.4316406 16.455078 C 4.760148 17.935789 6.0875402 19 7.6035156 19 L 18.75 19 A 1.250125 1.250125 0 1 0 18.75 16.5 L 7.6035156 16.5 C 7.2454911 16.5 6.9505395 16.263353 6.8730469 15.914062 A 1.250125 1.250125 0 0 0 6.8730469 15.912109 L 6.6699219 15 L 18.328125 15 C 19.856899 15 21.19278 13.918188 21.509766 12.423828 L 22.972656 5.5097656 A 1.250125 1.250125 0 0 0 21.75 4 L 3.9082031 4 C 3.3967732 3.3868132 2.6317903 3 1.796875 3 L 1.25 3 z M 4.7792969 6.5 L 20.207031 6.5 L 19.0625 11.904297 C 18.987486 12.257937 18.689351 12.5 18.328125 12.5 L 6.1132812 12.5 L 4.7792969 6.5 z M 8.5 20 A 1.5 1.5 0 0 0 8.5 23 A 1.5 1.5 0 0 0 8.5 20 z M 17.5 20 A 1.5 1.5 0 0 0 17.5 23 A 1.5 1.5 0 0 0 17.5 20 z"/></svg>
+                </div>
+            </div>
+            <span class="cart--counter" id="counter">0</span>
+        </div>
+        <div class="welcome--page pages">
+            <div class="content">
+                <div class="left">
+                    <div class="content">
+                        <h1>Welcome to <span>NovaHub</span></h1>
+                        <div class="main--info">                            
+                            <h2 class="start" id="play"></h2>
+                        </div>
+                    </div>
+                </div>
+                <div class="right">
+                    <h1>Check Out Our Products</h1>
+                    <div class="buttons">
+                        <a href="#" onclick="event.preventDefault();"><button class="productsButton">Products</button></a>
+                        <a href="customreq.html"><button>Custom Request</button></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <a href="index.html" id="homeButton" title="Home">
+            <svg xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 48 48" width="24px" height="24px"><path d="M 23.951172 4 A 1.50015 1.50015 0 0 0 23.072266 4.3222656 L 8.859375 15.519531 C 7.0554772 16.941163 6 19.113506 6 21.410156 L 6 40.5 C 6 41.863594 7.1364058 43 8.5 43 L 18.5 43 C 19.863594 43 21 41.863594 21 40.5 L 21 30.5 C 21 30.204955 21.204955 30 21.5 30 L 26.5 30 C 26.795045 30 27 30.204955 27 30.5 L 27 40.5 C 27 41.863594 28.136406 43 29.5 43 L 39.5 43 C 40.863594 43 42 41.863594 42 40.5 L 42 21.410156 C 42 19.113506 40.944523 16.941163 39.140625 15.519531 L 24.927734 4.3222656 A 1.50015 1.50015 0 0 0 23.951172 4 z M 24 7.4101562 L 37.285156 17.876953 C 38.369258 18.731322 39 20.030807 39 21.410156 L 39 40 L 30 40 L 30 30.5 C 30 28.585045 28.414955 27 26.5 27 L 21.5 27 C 19.585045 27 18 28.585045 18 30.5 L 18 40 L 9 40 L 9 21.410156 C 9 20.030807 9.6307412 18.731322 10.714844 17.876953 L 24 7.4101562 z"/></svg>
+        </a>
+        
+        <div class="pages" id="foreignSim">
+            <div class="container">
+                <div class="content">
+                    <span class="main--label">Foreign SIM <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e8eaed" id="infoSVG"><path d="M440-280h80v-240h-80v240Zm40-320q17 0 28.5-11.5T520-640q0-17-11.5-28.5T480-680q-17 0-28.5 11.5T440-640q0 17 11.5 28.5T480-600Zm0 520q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Zm0-80q134 0 227-93t93-227q0-134-93-227t-227-93q-134 0-227 93t-93 227q0 134 93 227t227 93Zm0-320Z"/></svg><span class="info--message--hidden">We offer convenient meetups and delivery services for our products. Please note that all meetups will take place at a designated location for your convenience and safety.</span> </span>
+                    <ul class="products--foreign products">
+                        
+                    </ul>
+                    
+                </div>
+            </div>
+        </div>
+        <div class="pages" id="giftCards">
+            <div class="container">
+                <div class="content">
+                    <span class="main--label">Gift Cards <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e8eaed" id="infoSVG"><path d="M440-280h80v-240h-80v240Zm40-320q17 0 28.5-11.5T520-640q0-17-11.5-28.5T480-680q-17 0-28.5 11.5T440-640q0 17 11.5 28.5T480-600Zm0 520q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Zm0-80q134 0 227-93t93-227q0-134-93-227t-227-93q-134 0-227 93t-93 227q0 134 93 227t227 93Zm0-320Z"/></svg><span class="info--message--hidden">We offer convenient meetups and delivery services for our products. Please note that all meetups will take place at a designated location for your convenience and safety.</span> </span>
+                    <ul class="products--giftcards products">
+                        
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="pages" id="cvc">
+            <div class="container">
+                <div class="content">
+                    <span class="main--label">Virtual Credit Cards <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e8eaed" id="infoSVG"><path d="M440-280h80v-240h-80v240Zm40-320q17 0 28.5-11.5T520-640q0-17-11.5-28.5T480-680q-17 0-28.5 11.5T440-640q0 17 11.5 28.5T480-600Zm0 520q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Zm0-80q134 0 227-93t93-227q0-134-93-227t-227-93q-134 0-227 93t-93 227q0 134 93 227t227 93Zm0-320Z"/></svg><span class="info--message--hidden">We offer convenient meetups and delivery services for our products. Please note that all meetups will take place at a designated location for your convenience and safety.</span> </span>
+                    <ul class="products--virtual products">
+                        
+                    </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="pages" id="pc">
+            <div class="container">
+                <div class="content">
+                    <span class="main--label">Payment Cards <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e8eaed" id="infoSVG"><path d="M440-280h80v-240h-80v240Zm40-320q17 0 28.5-11.5T520-640q0-17-11.5-28.5T480-680q-17 0-28.5 11.5T440-640q0 17 11.5 28.5T480-600Zm0 520q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Zm0-80q134 0 227-93t93-227q0-134-93-227t-227-93q-134 0-227 93t-93 227q0 134 93 227t227 93Zm0-320Z"/></svg><span class="info--message--hidden">We offer convenient meetups and delivery services for our products. Please note that all meetups will take place at a designated location for your convenience and safety.</span> </span>
+                    <ul class="products--payment products">
+                        
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="pages" id="tpc">
+            <div class="container">
+                <div class="content">
+                    <span class="main--label">Telco Pre-paid Cards <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e8eaed" id="infoSVG"><path d="M440-280h80v-240h-80v240Zm40-320q17 0 28.5-11.5T520-640q0-17-11.5-28.5T480-680q-17 0-28.5 11.5T440-640q0 17 11.5 28.5T480-600Zm0 520q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Zm0-80q134 0 227-93t93-227q0-134-93-227t-227-93q-134 0-227 93t-93 227q0 134 93 227t227 93Zm0-320Z"/></svg><span class="info--message--hidden">We offer convenient meetups and delivery services for our products. Please note that all meetups will take place at a designated location for your convenience and safety.</span> </span>
+                    <ul class="products--telco products">
+                        
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="pages" id="subs">
+            <div class="container">
+                <div class="content">
+                    <span class="main--label">Subscriptions <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e8eaed" id="infoSVG"><path d="M440-280h80v-240h-80v240Zm40-320q17 0 28.5-11.5T520-640q0-17-11.5-28.5T480-680q-17 0-28.5 11.5T440-640q0 17 11.5 28.5T480-600Zm0 520q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Zm0-80q134 0 227-93t93-227q0-134-93-227t-227-93q-134 0-227 93t-93 227q0 134 93 227t227 93Zm0-320Z"/></svg><span class="info--message--hidden">We offer convenient meetups and delivery services for our products. Please note that all meetups will take place at a designated location for your convenience and safety.</span> </span>
+                    <ul class="products--subscriptions products">
+                        
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+
+
+    </main>
+    <div class="select--price" id="selectPrice">
+        <div class="select--price--container">
+            <div class="content">
+                <h1>--Select Price--</h1>
+                <div class="sp--item--name">
+                    <h2>Novahub Bis</h2>
+                </div>
+                <div id="price">
+                    <button class="priceBtn">160</button>
+                    <button class="priceBtn">260</button>
+                    <button class="priceBtn">360</button>
+                    <button class="priceBtn">1600</button>
+                </div>
+                <div class="buttons">
+                    <button>Cancel</button>
+                    <button id="addPrice">Add to Cart</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="selected--item--page">
+        <div class="selected--container">
+            <div class="selected--content">
+                <div class="texts">
+                    <h1 class="selected--item--name">
+                        Item Name
+                    </h1>
+    
+                    <span class="selected--item--price">
+                        Item Price
+                    </span>
+    
+                    <span class="selected--item--quantity">
+                        Quantity
+                    </span>
+                </div>
+                <div class="quantitySelect">
+                    
+                </div>
+                <div class="selected--items--buttons">
+                    <button class="cancel--selection" id="selected--close--button" onclick='hideSelection()'>Cancel</button>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="allCategoriesHidden" id="allCategories">
+        <div class="container" id="categories--container">
+            <div class="content">
+                <h1>Categories</h1>
+                <ul class="categories">
+                    <li class="category">
+                        <a href="#foreignSim">
+                            <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e8eaed"><path d="M280-200h80v-80h-80v80Zm0-160h80v-160h-80v160Zm160 160h80v-160h-80v160Zm0-240h80v-80h-80v80Zm160 240h80v-80h-80v80Zm0-160h80v-160h-80v160ZM240-80q-33 0-56.5-23.5T160-160v-480l240-240h320q33 0 56.5 23.5T800-800v640q0 33-23.5 56.5T720-80H240Zm0-80h480v-640H434L240-606v446Zm0 0h480-480Z"/></svg>
+                            Foreign Sim
+                        </a>
+                
+                    </li>
+                    <li class="category">
+                        <a href="#giftCards">
+                            <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e8eaed"><path d="M160-280v80h640v-80H160Zm0-440h88q-5-9-6.5-19t-1.5-21q0-50 35-85t85-35q30 0 55.5 15.5T460-826l20 26 20-26q18-24 44-39t56-15q50 0 85 35t35 85q0 11-1.5 21t-6.5 19h88q33 0 56.5 23.5T880-640v440q0 33-23.5 56.5T800-120H160q-33 0-56.5-23.5T80-200v-440q0-33 23.5-56.5T160-720Zm0 320h640v-240H596l84 114-64 46-136-184-136 184-64-46 82-114H160v240Zm200-320q17 0 28.5-11.5T400-760q0-17-11.5-28.5T360-800q-17 0-28.5 11.5T320-760q0 17 11.5 28.5T360-720Zm240 0q17 0 28.5-11.5T640-760q0-17-11.5-28.5T600-800q-17 0-28.5 11.5T560-760q0 17 11.5 28.5T600-720Z"/></svg>
+                            Gift Cards
+                        </a>
+                
+                    </li>
+                    <li class="category">
+                        <a href="#cvc">
+                            <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e8eaed"><path d="M880-720v480q0 33-23.5 56.5T800-160H160q-33 0-56.5-23.5T80-240v-480q0-33 23.5-56.5T160-800h640q33 0 56.5 23.5T880-720Zm-720 80h640v-80H160v80Zm0 160v240h640v-240H160Zm0 240v-480 480Z"/></svg>
+                            Virtual Credit Cards
+                        </a>
+                
+                    </li>
+                    <li class="category">
+                        <a href="#pc">
+                            <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e8eaed"><path d="M560-440q-50 0-85-35t-35-85q0-50 35-85t85-35q50 0 85 35t35 85q0 50-35 85t-85 35ZM280-320q-33 0-56.5-23.5T200-400v-320q0-33 23.5-56.5T280-800h560q33 0 56.5 23.5T920-720v320q0 33-23.5 56.5T840-320H280Zm80-80h400q0-33 23.5-56.5T840-480v-160q-33 0-56.5-23.5T760-720H360q0 33-23.5 56.5T280-640v160q33 0 56.5 23.5T360-400Zm440 240H120q-33 0-56.5-23.5T40-240v-440h80v440h680v80ZM280-400v-320 320Z"/></svg>
+                            Payment Cards
+                        </a>
+                
+                    </li>
+                    <li class="category">
+                        <a href="#tpc">
+                            <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e8eaed"><path d="m159-168-34-14q-31-13-41.5-45t3.5-63l72-156v278Zm160 88q-33 0-56.5-23.5T239-160v-240l106 294q3 7 6 13.5t8 12.5h-40Zm206-4q-32 12-62-3t-42-47L243-622q-12-32 2-62.5t46-41.5l302-110q32-12 62 3t42 47l178 488q12 32-2 62.5T827-194L525-84Zm-86-476q17 0 28.5-11.5T479-600q0-17-11.5-28.5T439-640q-17 0-28.5 11.5T399-600q0 17 11.5 28.5T439-560Zm58 400 302-110-178-490-302 110 178 490ZM319-650l302-110-302 110Z"/></svg>
+                            Telco Pre-paid Cards
+                        </a>
+                
+                    </li>
+                    <li class="category">
+                        <a href="#subs">
+                            <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e8eaed"><path d="M160-440v80h640v-80H160Zm0-440h640q33 0 56.5 23.5T880-800v440q0 33-23.5 56.5T800-280H640v200l-160-80-160 80v-200H160q-33 0-56.5-23.5T80-360v-440q0-33 23.5-56.5T160-880Zm0 320h640v-240H160v240Zm0 200v-440 440Z"/></svg>
+                            Subscriptions
+                        </a>
+                
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="notification">
+        <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e8eaed"><path d="m424-296 282-282-56-56-226 226-114-114-56 56 170 170Zm56 216q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Z"/></svg> <span id="message"></span>
+    </div>
+    <div class="item--list--hidden">
+        <div class="items--container">
+            <a href="orderpage.html" id="allOrders">
+                Open Orders
+                <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e3e3e3"><path d="m256-240-56-56 384-384H240v-80h480v480h-80v-344L256-240Z"/></svg>
+            </a>
+            <svg xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 24 24" width="24px" height="24px" id="cart--close--button" stroke="#fff" stroke-width="1"><path d="M 19.990234 2.9863281 A 1.0001 1.0001 0 0 0 19.292969 3.2929688 L 12 10.585938 L 4.7070312 3.2929688 A 1.0001 1.0001 0 0 0 3.9902344 2.9902344 A 1.0001 1.0001 0 0 0 3.2929688 4.7070312 L 10.585938 12 L 3.2929688 19.292969 A 1.0001 1.0001 0 1 0 4.7070312 20.707031 L 12 13.414062 L 19.292969 20.707031 A 1.0001 1.0001 0 1 0 20.707031 19.292969 L 13.414062 12 L 20.707031 4.7070312 A 1.0001 1.0001 0 0 0 19.990234 2.9863281 z"/></svg>
+            <div class="items--content">
+                <h1>Cart</h1>
+                <ul class="items" id="cartItems">
+                    <li class="empty--message">Cart is Empty</li>
+                    <!-- <li class="item">
+                        <span class="item--info">
+                            <span class="name">Item Name</span>
+                            <div>
+                                <span class="price">Price: ₵0</span>
+                                <span class="quantity">Quantity: 1</span>
+                            </div>
+                        </span>
+                        <span class="list--buttons">
+                            <button class="remove--item">Remove</button>
+                            <span class="change">
+                                <button class="add--quantity">+</button>
+                                <button class="subtract--quantity">-</button>
+                            </span>
+                        </span>
+
+
+
+                    </li> -->
+                </ul>
+                <span class="total--price">Total price: ₵0</span>
+
+                <div class="items--buttons">
+                    <button class="clear--cart">Clear All</button>
+                    <button class="order" id="order" type="submit">Order</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <form action="/submit-order" method="POST" id="orderForm">
+            
+        <label for="name">Customer Name:</label>
+        <input type="text" id="name" name="name" placeholder="Your Full name" required>
+        <label for="email">Email:</label>
+        <input type="email" id="email-address" name="email" placeholder="Your Email" required>
+        <label for="product">Products</label>
+        <ul class="orderProducts" id="orderProducts">
+
+        </ul>
+        <p>Please confirm these orders!</p>
+        <span class="total--price" id="amount">Total price: ₵0</span>
+        <div class="buttons">
+            <button class="cancelText" id="orderFormCancel" title="Cancel" type="button">Cancel</button>
+            <button type="submit" onclick="payWithPaystack()">Place Order</button>
+        </div>
+    </form>
+    
+    <script src="app.js"></script>
+    <script src="https://js.paystack.co/v2/inline.js"></script>
+    <!-- <script src="cross.js"></script> -->
+</body>
+</html>

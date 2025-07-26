@@ -1,0 +1,18 @@
+# Ignore environment and secret files
+.env
+.env.local
+
+# Node modules
+node_modules/
+
+# Logs
+logs
+*.log
+
+# Build artifacts
+dist/
+build/
+
+# OS/System files
+.DS_Store
+Thumbs.db

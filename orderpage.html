@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <title>Order Page || Novahub</title>
+    <link rel="stylesheet" href="orderpage.css">
+</head>
+<body>
+    <nav>
+        <a href="index.html">Novahub</a>
+        <span class="username">Nii</span>
+    </nav>
+
+    <div class="orderTable" id="orderTable">
+        <div id="tab">
+            <span id="passiveTab" class="tabItem">Past Order(s)</span>
+            <span id="activeTab" class="tabItem">Active Order(s)</span>
+        </div>
+        <div id="mover">
+            <div class="container" id="move">
+                <div class="passiveOrders">
+                    <div class="headings">
+                        <h2>Past Orders</h2>
+                        <p>These are orders that have been completed or are no longer active.</p>
+                    </div>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Order ID</th>
+                                <th>Product</th>
+                                <th>Quantity</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody id="passiveOrderList">
+                            <tr>
+                                <td>12345</td>
+
+                                <td>Product A</td>
+                                <td>2</td>
+                                <td>Completed</td>
+                            </tr>
+                            <tr>
+                                <td>12346</td>
+                                <td>Product B</td>
+                                <td>1</td>
+                                <td>Cancelled</td>
+                            </tr>
+                            <tr>
+                                <td>12347</td>
+                                <td>Product C</td>
+                                <td>5</td>
+                                <td>Completed</td>
+                            </tr>
+                            <tr>
+                                <td>12348</td>
+                                <td>Product D</td>
+                                <td>3</td>
+                                <td>Completed</td>
+                            </tr>
+                            <tr>
+                                <td>12349</td>
+                                <td>Product E</td>
+                                <td>4</td>
+                                <td>Completed</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="activeOrders">
+                    <div class="headings">
+                        <h2>Active Orders</h2>
+                        <p>These are current orders that are being processed.</p>
+                    </div>
+                     <table>
+                        <thead>
+                            <tr>
+                                <th>Order ID</th>
+                                <th>Product</th>
+                                <th>Quantity</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody id="activeOrderList">
+                            <tr>
+                                <td>12345</td>
+
+                                <td>Product A</td>
+                                <td>2</td>
+                                <td>Completed</td>
+                            </tr>
+                            <tr>
+                                <td>12346</td>
+                                <td>Product B</td>
+                                <td>1</td>
+                                <td>Cancelled</td>
+                            </tr>
+                            <tr>
+                                <td>12347</td>
+                                <td>Product C</td>
+                                <td>5</td>
+                                <td>Completed</td>
+                            </tr>
+                            <tr>
+                                <td>12348</td>
+                                <td>Product D</td>
+                                <td>3</td>
+                                <td>Completed</td>
+                            </tr>
+                            <tr>
+                                <td>12349</td>
+                                <td>Product E</td>
+                                <td>4</td>
+                                <td>Completed</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            
+        </div>
+        
+    </div>
+
+    <footer>
+        <p>&copy; 2025 Novahub. All rights reserved.</p>
+    </footer>
+</body>
+<script src="orderpage.js" type="module"></script>
+
+</html>
