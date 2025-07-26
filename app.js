@@ -500,7 +500,7 @@ window.addEventListener("load", () => {
 async function fetchProducts() {
   try {
     const res = await fetch(
-      "https://novahub-backend.onrender.com/api/products/all"
+      "https://site-h33e.onrender.com/api/products/all"
     );
     const products = await res.json();
     return products;
@@ -942,7 +942,7 @@ function payWithPaystack(e) {
       };
 
       // Send order data to backend
-      fetch("https://novahub-backend.onrender.com/api/orders", {
+      fetch("https://site-h33e.onrender.com/api/orders", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

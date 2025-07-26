@@ -15,7 +15,7 @@ document.getElementById("loginForm").addEventListener("submit", async function (
   message.textContent = "Logging in...";
 
   try {
-    const res = await fetch("https://novahub-backend.onrender.com/api/admin/login", {
+    const res = await fetch("https://site-h33e.onrender.com/api/admin/login", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ username, password })
@@ -51,7 +51,7 @@ document.getElementById("loginForm").addEventListener("submit", async function (
 //   message.textContent = "Registering...";
 
 //   try {
-//     const res = await fetch("https://novahub-backend.onrender.com/api/admin/register", {
+//     const res = await fetch("https://site-h33e.onrender.com/api/admin/register", {
 //       method: "POST",
 //       headers: { "Content-Type": "application/json" },
 //       body: JSON.stringify({ username, password })

@@ -10,6 +10,7 @@ connectDB(); // Connect to MongoDB
 const allowedOrigins = [
   "http://localhost:5500", // for local dev
   "https://chyber-nana.github.io", // for live GitHub Pages
+  "https://nova-hub-website.github.io/site",
   "http://127.0.0.1:5500"
 ];
 

@@ -46,10 +46,10 @@ function getAuthHeaders() {
 async function fetchProducts() {
   try {
     const res = await fetch(
-      "https://novahub-backend.onrender.com/api/products/all"
+      "https://site-h33e.onrender.com/api/products/all"
     );
     const resOrders = await fetch(
-      "https://novahub-backend.onrender.com/api/orders/all"
+      "https://site-h33e.onrender.com/api/orders/all"
     );
     const orders = await resOrders.json();
     const products = await res.json(); // this is an array of product objects
@@ -75,7 +75,7 @@ async function addProduct(form) {
     //   formData.set("ImageURL", imageFile); // will be processed by multer
     // }
 
-    const res = await fetch("https://novahub-backend.onrender.com/api/products/add", {
+    const res = await fetch("https://site-h33e.onrender.com/api/products/add", {
       method: "POST",
       headers: {
         Authorization: `Bearer ${localStorage.getItem("adminToken") || ""}`,
@@ -132,7 +132,7 @@ async function updateProduct(productId, updatedData) {
 
   try {
     const res = await fetch(
-      `https://novahub-backend.onrender.com/api/products/${productId}`,
+      `https://site-h33e.onrender.com/api/products/${productId}`,
       {
         method: "PUT",
         headers: {
@@ -161,7 +161,7 @@ async function updateProduct(productId, updatedData) {
 async function deleteProduct(productId) {
   try {
     const res = await fetch(
-      `https://novahub-backend.onrender.com/api/products/${productId}`,
+      `https://site-h33e.onrender.com/api/products/${productId}`,
       {
         method: "DELETE",
         headers: getAuthHeaders(),
