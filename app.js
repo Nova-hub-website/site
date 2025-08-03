@@ -118,7 +118,7 @@ document.getElementById("loginForm").addEventListener("submit", async function (
     return;
   }
   try {
-    const res = await fetch("https://site-h33e.onrender.com/api/customer/login", {
+    const res = await fetch("https://site-h33e.onrender.com/api/customers/login", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ username, password })
@@ -162,7 +162,7 @@ document.getElementById("signupForm").addEventListener("submit", async function 
     return;
   }
   try {
-    const res = await fetch("https://site-h33e.onrender.com/api/customer/add", {
+    const res = await fetch("https://site-h33e.onrender.com/api/customers/register", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ username, email, phone, password })

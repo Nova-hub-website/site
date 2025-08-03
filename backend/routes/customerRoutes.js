@@ -6,27 +6,25 @@ const Customer = require("../models/Customer");
 const router = express.Router();
 
 // Add a new customer
-router.post("/add", async (req, res) => {
-    console.log("📥 Add Customer route hit");
-    console.log("Body:", req.body);
-    
-    try {
-        const customerData = req.body;
-    
-        // Check if customer already exists
-        const existingCustomer = await Customer.findOne({ email: customerData.email });
-        if (existingCustomer) {
-        return res.status(400).json({ message: "Customer already exists" });
-        }
-    
-        const newCustomer = new Customer(customerData);
-        await newCustomer.save();
-    
-        res.status(201).json({ message: "✅ Customer added", customer: newCustomer });
-    } catch (err) {
-        console.error("🔥 Add customer error:", err.message);
-        res.status(500).json({ message: "Server error", error: err.message });
-    }
+router.post("/register", async (req, res) => {
+  try {
+    const { username, email, phone, password } = req.body;
+
+    // Check if user exists
+    const existingCustomer = await Customer.findOne({ username });
+    if (existingCustomer) return res.status(400).json({ message: "Customer already exists" });
+
+    // Hash password
+    const hashedPassword = await bcrypt.hash(password, 10);
+
+    // Save new admin
+    const newCustomer = new Customer({ username: username, password: hashedPassword, email: email, phone:  phone });
+    await newCustomer.save();
+
+    res.status(201).json({ message: "Customer registered successfully" });
+  } catch (err) {
+    res.status(500).json({ message: "Server error" });
+  }
 });
 
 // Logging in a customer
