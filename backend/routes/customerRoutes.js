@@ -45,3 +45,6 @@ router.post("/login", async (req, res) => {
     res.status(500).json({ message: "Server error" });
   }
 });
+
+module.exports = router;
+// Export the router to be used in server.js
