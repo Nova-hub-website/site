@@ -25,6 +25,10 @@ const el = document.getElementById("price");
 const allCategories = document.getElementById("allCategories");
 const categoryContainer = document.querySelector("#categories--container");
 const orderFormCancel = document.getElementById("orderFormCancel");
+const noAccount = document.querySelector(".noAccount")
+const haveAccount = document.querySelector(".haveAccount")
+const formOverLay = document.querySelector(".form--overlay")
+const loginButton = document.getElementById("loginButton");
 
 let counter = 0;
 let cartList = [];
@@ -65,6 +69,118 @@ orderButton.addEventListener("click", () => {
     }
   }
 });
+
+noAccount.addEventListener("click", () => {
+  if (window.innerWidth > 640) {
+    formOverLay.innerHTML = `
+                    <h1>Hey there new user!</h1>
+            <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e3e3e3"><path d="M720-400v-120H600v-80h120v-120h80v120h120v80H800v120h-80Zm-360-80q-66 0-113-47t-47-113q0-66 47-113t113-47q66 0 113 47t47 113q0 66-47 113t-113 47ZM40-160v-112q0-34 17.5-62.5T104-378q62-31 126-46.5T360-440q66 0 130 15.5T616-378q29 15 46.5 43.5T680-272v112H40Zm80-80h480v-32q0-11-5.5-20T580-306q-54-27-109-40.5T360-360q-56 0-111 13.5T140-306q-9 5-14.5 14t-5.5 20v32Zm240-320q33 0 56.5-23.5T440-640q0-33-23.5-56.5T360-720q-33 0-56.5 23.5T280-640q0 33 23.5 56.5T360-560Zm0-80Zm0 400Z"/></svg>
+            <p>Create an account and let's start shopping!</p>
+    `
+    formOverLay.classList.add("switchToSign")
+  } else {
+    document.querySelector(".form--section").classList.add("switchToOther")
+  }
+})
+
+haveAccount.addEventListener("click", () => {
+  if (window.innerWidth > 640) {
+    formOverLay.innerHTML = `
+                <h1>Welcome back User!</h1>
+            <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e3e3e3"><path d="M480-120v-80h280v-560H480v-80h280q33 0 56.5 23.5T840-760v560q0 33-23.5 56.5T760-120H480Zm-80-160-55-58 102-102H120v-80h327L345-622l55-58 200 200-200 200Z"/></svg>
+            <p>Enter your credentials and start shopping again!</p>
+        `
+    formOverLay.classList.remove("switchToSign")
+  } else {
+      document.querySelector(".form--section").classList.remove("switchToOther")
+
+  }
+})
+
+loginButton.addEventListener("click", () => {
+  document.querySelector(".form--section").classList.toggle("show--form");
+});
+
+document.querySelector(".close--form--button").addEventListener("click", () => {
+  document.querySelector(".form--section").classList.remove("show--form");
+});
+
+document.getElementById("loginForm").addEventListener("submit", async function (e) {
+  e.preventDefault();
+  const username = document.getElementById("loginUsername").value.trim();
+  const password = document.getElementById("loginPassword").value;
+  const message = document.getElementById("messageLogin");
+  message.style.color = "white";
+  message.textContent = "Logging in...";
+  if (!username || !password) {
+    message.style.color = "red";
+    message.textContent = "Fill the fields";
+    return;
+  }
+  try {
+    const res = await fetch("https://site-h33e.onrender.com/api/customer/login", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ username, password })
+    });
+    const data = await res.json();
+    if (res.ok) {
+      message.style.color = "green";
+      message.textContent = "Login successful ✅";
+      sessionStorage.setItem("adminToken", data.token);
+      localStorage.setItem("adminUsername", username);
+      setTimeout(() => {
+        window.location.href = "adminDashboard.html"; // change to your dashboard file
+      }, 1000);
+    } else {
+      message.style.color = "red";
+      message.textContent = data.message || "Login failed";
+    }
+  } catch (err) {
+    message.textContent = "Server error";
+    console.error(err);
+  }
+});
+
+document.getElementById("signupForm").addEventListener("submit", async function (e) {
+  e.preventDefault();
+  const username = document.getElementById("registerUsername").value.trim();
+  const password = document.getElementById("registerPassword").value;
+  const confirmPassword = document.getElementById("registerConfirmPassword").value;
+  const email = document.getElementById("registerEmail").value.trim();
+  const phone = document.getElementById("registerPhone").value.trim();
+  const message = document.getElementById("messageRegister");
+  message.textContent = "Registering...";
+  if (password !== confirmPassword) {
+    message.style.color = "red";
+    message.textContent = "Passwords do not match";
+    return;
+  }
+  if (!username || !email || !phone || !password || !confirmPassword) {
+    message.style.color = "red";
+    message.textContent = "Fill the fields";
+    return;
+  }
+  try {
+    const res = await fetch("https://site-h33e.onrender.com/api/customer/add", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ username, email, phone, password })
+    });
+    const data = await res.json();
+    if (res.ok) {
+      message.style.color = "green";
+      message.textContent = "Registration successful ✅";
+    } else {
+      message.style.color = "red";
+      message.textContent = data.message || "Registration failed";
+    }
+  } catch (err) {
+    message.textContent = "Server error";
+    console.error(err);
+  }
+});
+
 
 orderFormCancel.addEventListener("click", () => {
   orderForm.classList.remove("state");

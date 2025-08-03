@@ -63,6 +63,13 @@
                 </a>
             </li>
         </ul>
+        <div class="login" id="loginButton">
+            <div class="container">
+                <!-- <div class="content"> -->
+                    <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e3e3e3"><path d="M480-120v-80h280v-560H480v-80h280q33 0 56.5 23.5T840-760v560q0 33-23.5 56.5T760-120H480Zm-80-160-55-58 102-102H120v-80h327L345-622l55-58 200 200-200 200Z"/></svg>
+                <!-- </div> -->
+            </div>
+        </div>
         <div class="cart" id="cart">
             <div class="container" id="cart--container">
                 <div class="content" id="cart">
@@ -301,6 +308,70 @@
                 </div>
             </div>
         </div>
+    </div>
+    <div class="form--section">
+        <div class="close--form--button">
+            <svg xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 24 24" width="24px" height="24px" id="form--close--button"><path d="M 19.990234 2.9863281 A 1.0001 1.0001 0 0 0 19.292969 3.2929688 L 12 10.585938 L 4.7070312 3.2929688 A 1.0001 1.0001 0 0 0 3.9902344 2.9902344 A 1.0001 1.0001 0 0 0 3.2929688 4.7070312 L 10.585938 12 L 3.2929688 19.292969 A 1.0001 1.0001 0 1 0 4.7070312 20.707031 L 12 13.414062 L 19.292969 20.707031 A 1.0001 1.0001 0 1 0 20.707031 19.292969 L 13.414062 12 L 20.707031 4.7070312 A 1.0001 1.0001 0 0 0 19.990234 2.9863281 z"/></svg>
+        </div>
+        <div class="login--section">
+                    <h1>Login</h1>
+                    <form id="loginForm">
+                        <div class="form--element">
+                            <label for="loginUsername">Username</label>
+                            <input type="text" name="username" id="loginUsername">
+                        </div>
+                        <div class="form--element">
+                            <label for="loginPassword">Password</label>
+                            <input type="password" name="password" id="loginPassword">
+                        </div>
+                        <div class="form--element">
+                            <span class="noAccount">Don't have an account?</span>
+                            <button type="submit" id="cLogin">Login</button>
+                        </div>
+                        <div class="form--element">
+                            <div id="messageLogin"></div>
+                        </div>
+                    </form>
+        </div>
+        <div class="signup--section">
+                    <h1>Sign Up</h1>
+                    <form id="signupForm">
+                        <div class="form--element">
+                            <label for="registerUsername">Username</label>
+                            <input type="text" name="username" id="registerUsername" placeholder="Enter your username">
+                        </div>
+                        <div class="form--element">
+                            <label for="registerEmail">Email</label>
+                            <input type="email" name="email" id="registerEmail" placeholder="Enter your email">
+                        </div>
+                        <div class="form--element">
+                            <label for="registerPhone">Phone</label>
+                            <input type="phone" id="registerPhone" name="phone" placeholder="Your Phone Number">
+                        </div>
+                        <div class="form--element">
+                            <label for="registerPassword">Password</label>
+                            <input type="password" name="password" id="registerPassword" placeholder="Enter your password">
+                        </div>
+                        <div class="form--element">
+                            <label for="registerConfirmPassword">Confirm Password</label>
+                            <input type="password" name="confirmPassword" id="registerConfirmPassword" placeholder="Confirm your password">
+                        </div>
+                        <div class="form--element">
+                            <span class="haveAccount">Already have an account?</span>
+                            <button type="submit">Sign Up</button>
+                        </div>
+                        <div class="form--element">
+                            <div id="messageRegister"></div>
+                        </div>
+                    </form>
+
+        </div>
+        <div class="form--overlay">
+            <h1>Welcome back User!</h1>
+            <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e3e3e3"><path d="M480-120v-80h280v-560H480v-80h280q33 0 56.5 23.5T840-760v560q0 33-23.5 56.5T760-120H480Zm-80-160-55-58 102-102H120v-80h327L345-622l55-58 200 200-200 200Z"/></svg>
+            <p>Enter your credentials and start shopping again!</p>
+        </div>
+
     </div>
     <form action="/submit-order" method="POST" id="orderForm">
             
