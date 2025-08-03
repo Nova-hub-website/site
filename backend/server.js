@@ -32,6 +32,9 @@ app.use(express.json()); // to parse JSON body from requests
 const adminRoutes = require("./routes/adminRoutes");
 app.use("/api/admin", adminRoutes);
 
+customerRoutes = require("./routes/customerRoutes");
+app.use("/api/customers", customerRoutes);
+
 const productRoutes = require("./routes/productRoutes");
 app.use("/api/products", productRoutes);
 
