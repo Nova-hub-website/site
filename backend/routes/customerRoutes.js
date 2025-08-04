@@ -46,5 +46,34 @@ router.post("/login", async (req, res) => {
   }
 });
 
+router.post("/add-order/:id", async (req, res) => {
+  try {
+    const { customerId } = req.params;
+    const { order } = req.body;
+
+    // Find customer and update order history
+    const customer = await Customer.findById(customerId);
+    if (!customer) return res.status(404).json({ message: "Customer not found" });
+    customer.orderHistory.push(order);
+    await customer.save();
+    res.status(200).json({ message: "Order added successfully", order });
+  } catch (err) {
+    console.error("🔥 ADD ORDER ERROR:", err); // Show full error trace
+    res.status(500).json({ message: "Server error" });
+  }
+});
+
+// Get all customers
+router.get("/all", async (req, res) => {
+  try {
+    const customers = await Customer.find();
+    res.status(200).json(customers);
+  } catch (err) {
+    console.error("🔥 GET CUSTOMERS ERROR:", err); // Show full error trace
+    //  
+    res.status(500).json({ message: "Server error" });
+  }
+});
+
 module.exports = router;
 // Export the router to be used in server.js

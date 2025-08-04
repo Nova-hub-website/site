@@ -15,6 +15,10 @@ const customerSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
+  orderHistory: {
+    type: Array,
+    default: [],
+  },
   password: {
     type: String,
     required: true,
