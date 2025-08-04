@@ -70,6 +70,11 @@ document.querySelector(".accountInfo").addEventListener("click", () => {
 });
 
 orderButton.addEventListener("click", () => {
+  if (!localStorage.getItem("customerToken")) {
+    alert("You must be logged in to make a payment.");
+    document.querySelector(".form--section").classList.add("show--form");
+    return;
+  }
   if (cartList.length === 0) {
     alert("No items have been selected!");
   } else {
@@ -1081,19 +1086,19 @@ async function fetchCustomers() {
   }
 }
 
-
 async function getCustomerIdByName(name) {
   const customer = await fetchCustomers(); // Fetch all from DB
   const trimmedName = name.trim().toLowerCase();
 
-  const found = customer[0].find(
+  const found = customer.find(
     (p) => p.username.trim().toLowerCase() === trimmedName
   );
   console.log("Looking for:", trimmedName);
-  products[0].forEach((p) => console.log("→", p.username.toLowerCase()));
+  customer.forEach((p) => console.log("→", p.username.toLowerCase()));
 
   if (found) {
     console.log("✅ Found ID:", found._id);
+    alert(`Customer ID found: ${found._id}`);
     return found._id;
   } else {
     console.warn("❌ Customer not found with name:", name);
@@ -1101,14 +1106,12 @@ async function getCustomerIdByName(name) {
   }
 }
 
-
 const paymentForm = document.getElementById("orderForm");
 paymentForm.addEventListener("submit", payWithPaystack, false);
 function payWithPaystack(e) {
   e.preventDefault();
-
   let handler = PaystackPop.setup({
-    key: "sk_test_37cb524a423a5d06d1def5493f8612db122653fd", // Replace with your public key
+    key: "pk_test_657f89eccc84305c6401312fcd2608fd1676c97c", // Replace with your public key
     email: document.getElementById("email-address").value,
     amount: sum(prices) * 100,
     currency: "GHS",
@@ -1138,9 +1141,9 @@ function payWithPaystack(e) {
       };
 
       // Send order data to backend
+      const c = getCustomerIdByName(localStorage.getItem("customerUsername"))
       fetch(
-        `https://site-h33e.onrender.com/api/customers/add-order/${localStorage.getItem(
-          "customerUsername"
+        `https://site-h33e.onrender.com/api/customers/add-order/${c}
         )}`,
         {
           method: "POST",
