@@ -49,12 +49,12 @@ router.post("/login", async (req, res) => {
 router.post("/add-order/:id", async (req, res) => {
   try {
     const { id } = req.params;
-    const { order } = req.body;
+    // const { order } = req.body;
 
     // Find customer and update order history
     const customer = await Customer.findById(id);
     if (!customer) return res.status(404).json({ message: "Customer not found" });
-    customer.orderHistory.push(order);
+    customer.orderHistory.push(req.body);
     await customer.save();
     res.status(200).json({ message: "Order added successfully", order });
   } catch (err) {

@@ -1086,6 +1086,26 @@ async function fetchCustomers() {
   }
 }
 
+async function getProductIdByName(name) {
+  const products = await fetchProducts(); // Fetch all from DB
+  const trimmedName = name.trim().toLowerCase();
+
+  const found = products.find(
+    (p) => p.ItemName.trim().toLowerCase() === trimmedName
+  );
+  console.log("Looking for:", trimmedName);
+  products.forEach((p) => console.log("→", p.ItemName.toLowerCase()));
+
+  if (found) {
+    console.log("✅ Found ID:", found._id);
+    alert(`Product ID found: ${found._id}`);
+    return found._id;
+  } else {
+    console.warn("❌ Product not found with name:", name);
+    return null;
+  }
+}
+
 async function getCustomerIdByName(name) {
   const customer = await fetchCustomers(); // Fetch all from DB
   const trimmedName = name.trim().toLowerCase();
@@ -1120,7 +1140,7 @@ function payWithPaystack(e) {
     onClose: function () {
       alert("Window closed.");
     },
-    callback: function (response) {
+    callback: async function (response) {
       let message = "✅ Payment complete! Reference: " + response.reference;
       console.log("🧾 Name:", document.getElementById("name").value);
       console.log("📧 Email:", document.getElementById("email-address").value);
@@ -1141,16 +1161,15 @@ function payWithPaystack(e) {
       };
 
       // Send order data to backend
-      const c = getCustomerIdByName(localStorage.getItem("customerUsername"))
+      const c = await getCustomerIdByName(localStorage.getItem("customerUsername"))
       fetch(
-        `https://site-h33e.onrender.com/api/customers/add-order/${c}
-        )}`,
+        `https://site-h33e.onrender.com/api/customers/add-order/${c}`,
         {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
           },
-          body: JSON.stringify(orderData),
+          body: JSON.stringify({orderHistory: orderData}),
         }
       )
         .then(async (res) => {
