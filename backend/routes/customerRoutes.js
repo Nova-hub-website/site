@@ -52,6 +52,7 @@ router.put("/update/:id", async (req, res) => {
     const { id } = req.params;
     const { username, email, phone } = req.body;
     const customer = await Customer.findById(id);
+    console.log("Updating customer:", customer); // Debugging line
     if (!customer) return res.status(404).json({ message: "Customer not found" });
     customer.username = username || customer.username;
     customer.email = email || customer.email;

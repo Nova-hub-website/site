@@ -149,6 +149,8 @@ document.getElementById("editAccountForm").addEventListener("submit", async func
   const email = document.getElementById("editEmail").value.trim();
   const phone = document.getElementById("editPhone").value.trim();
   const message = document.getElementById("messageEdit");
+  const c = await getCustomerIdByName(localStorage.getItem("customerUsername"))
+  // alert(c)
   message.textContent = "Updating account info...";
   if (!username || !email || !phone) {
     message.style.color = "red";
@@ -156,7 +158,7 @@ document.getElementById("editAccountForm").addEventListener("submit", async func
     return;
   }
   try {
-    const res = await fetch(`https://site-h33e.onrender.com/api/customers/update/${ await getCustomerIdByName(localStorage.getItem("customerUsername"))}`, {
+    const res = await fetch(`https://site-h33e.onrender.com/api/customers/update/${c}`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ username, email, phone }),
@@ -176,7 +178,7 @@ document.getElementById("editAccountForm").addEventListener("submit", async func
     message.textContent = "Server error";
     console.error(err);
   }
-  document.querySelector(".editAccountInfoSection").classList.remove("active");
+  // document.querySelector(".editAccountInfoSection").classList.remove("active");
 });
 
 editAccountInfo.addEventListener("click", () => {
