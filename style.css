@@ -458,9 +458,9 @@ body.logged-in #accountInfo {
 }
 
 .accountInfoPage {
-    padding: 25px;
+    padding: 25px 25px 25px 0;
     width: 50%;
-    max-width: 650px;
+    max-width: 350px;
     height: 50%;
     position: absolute;
     z-index: 2000;
@@ -468,77 +468,315 @@ body.logged-in #accountInfo {
     right: 0;
     background-color: #171717;
     display: grid;
-    grid-template-rows: 1fr 3rem;
+    grid-template-rows: 3rem 1fr;
     place-items: center;
     display: none;
 }
 
 .accountInfoPage.show {
-    padding: 25px;
+    padding: 25px 25px 0 25px;
     width: 50%;
-    max-width: 650px;
-    height: 50%;
+    max-width: 350px;
+    height: fit-content;
+    max-height: 550px;
     position: absolute;
     z-index: 2000;
     top: 5rem;
     right: 0;
     background-color: #171717;
     display: grid;
-    grid-template-rows: 1fr 3rem;
+    grid-template-rows: 3rem 1fr 50px;
     place-items: center;
 }
 
-.accountInfoPage .userInformation {
+.accountInfoPage .tabarea {
     width: 100%;
     height: 100%;
-    display: grid;
-    place-items: center;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+    gap: 10px;
 }
 
-.accountInfoPage .userInformation div {
-    display: grid;
-    place-items: center;
+.accountInfoPage .tabarea .tab {
+    background-color: #6a6b7472;
+    width: 100%;
+    height: 80%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    color: #fff;
+    font-family: "Outfit";
+    font-size: 1rem;
+}
+
+.accountInfoPage .tabarea .tab:hover {
+    background-color: #ff6e7f;
+    transition: all .35s ease-in-out;
+}
+
+.accountInfoPage .tabarea .tab.active {
+    background-color: #ff6e7f;
+    transition: all .35s ease-in-out;
+}
+
+.accountInfoPage .main--content {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.accountInfoPage .main--content .accountInfoContent {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    display: none;
+}
+
+.accountInfoPage .main--content .accountInfoContent.active {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.accountInfoPage .main--content .accountInfoContent .accountInfoSection {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #1f201f5d;
+}
+
+.accountInfoPage .main--content .accountInfoContent .accountInfoSection p {
+    width: 100%;
+    padding: 10px 0;
     text-align: left;
+    font-size: 1.2rem;
+    margin-bottom: 5px;
+    text-indent: 5px;
+}
+
+.accountInfoPage .main--content .accountInfoContent .accountInfoSection .buttonsAccount {
     width: 100%;
     height: 100%;
-    grid-template-columns: 1fr 1fr;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
 }
 
-.accountInfoPage .userInformation div p {
-    font-weight: 600;
-    width: 100%;
-}
-
-.accountInfoPage .userInformation div span {
-    font-weight: 400;
-    width: 100%;
-}
-
-.edit--section {
-    width: 100%;
-    height: 100%;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    place-items: center;
-    gap: 20px;
-}
-
-.edit--section button {
-    width: 100px;
-    height: 45px;
-    background-color: #e8717f;
+.accountInfoPage .main--content .accountInfoContent .accountInfoSection .buttonsAccount button {
+    width: 30%;
+    height: 40px;
+    background-color: #ff6e7f;
+    color: #fff;
+    font-family: "Outfit";
+    font-size: 1.2rem;
     border: none;
     border-radius: 12px;
     cursor: pointer;
-    color: #fff;
-    font-size: 1em;
-    font-family: 'Roboto';
-    transition: background-color .35s ease-in-out;
+    transition: all .35s ease-in-out;
 }
 
-.edit--section button:hover {
+.accountInfoPage .main--content .accountInfoContent .accountInfoSection .buttonsAccount button:hover {
+    background-color: #e8717f;
+    transition: all .35s ease-in-out;
+}
+
+.accountInfoPage .main--content .orderHistoryContent {
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template-rows: 3rem 1fr 1fr;
+    place-items: center;
+    display: none;
+}
+
+.accountInfoPage .main--content .orderHistoryContent.active {
+    width: 100%;
+    height: 100%;
+    display: grid;
+    place-items: center;
+    grid-template-rows: 3rem 1fr 50px;
+}
+
+.accountInfoPage .main--content .orderHistoryContent #orderHistoryList {
+    width: 100%;
+    height: 100%;
+    min-height: 200px;
+    max-height: 350px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #1f201f5d;
+}
+
+.no-orders {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: #e3e3e3;
+    font-family: "Outfit";
+}
+
+
+.accountInfoPage .main--content .orderHistoryContent a {
+    width: 80%;
+    height: 70%;
+    padding: 0 5px;
     background-color: #ff6e7f;
-    transition: background-color .35s ease-in-out;
+    color: #fff;
+    font-family: "Outfit";
+    font-size: 1.2rem;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all .35s ease-in-out;
+}
+
+.accountInfoPage .main--content .editAccountInfoSection {
+    display: grid;
+    grid-template-rows: 3rem 1fr 50px;
+    place-items: center;
+    position: fixed;
+    background-color: #1f201f;
+    inset: 0;
+    margin: auto;
+    z-index: 1000;
+    height: 60%;
+    width: 60%;
+    display: none;
+}
+
+.accountInfoPage .main--content .editAccountInfoSection.active {
+        display: grid;
+    grid-template-rows: 3rem 1fr 50px;
+    place-items: center;
+    position: fixed;
+    background-color: #1f201f;
+    inset: 0;
+    margin: auto;
+    z-index: 1000;
+    height: 60%;
+    width: 60%;
+}
+
+#deleteAccount {
+    width: 80%;
+    height: 70%;
+    padding: 0 5px;
+    background-color: #ec162f;
+    color: #fff;
+    font-family: "Outfit";
+    font-size: 1.2rem;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all .35s ease-in-out;
+}
+
+#deleteAccount:hover {
+    background-color: #e3384c;
+    transition: all .35s ease-in-out;
+}
+
+.accountInfoPage .main--content .editAccountInfoSection form#editAccountForm {
+    width: 100%;
+    height: 100%;
+    display: grid;
+    place-items: center;
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+    /* border-radius: 15px; */
+}
+
+.accountInfoPage .main--content .editAccountInfoSection form#editAccountForm .form--element1 {
+    width: 80%;
+    height: 100%;
+    display: grid;
+    place-items: center;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    /* margin-bottom: 10px; */
+}
+
+.accountInfoPage .main--content .editAccountInfoSection form#editAccountForm .form--element2 {
+    width: 100%;
+    height: 100%;
+    display: grid;
+    place-items: center;
+    grid-template-columns: 1fr 1fr;
+}
+
+.accountInfoPage .main--content .editAccountInfoSection form#editAccountForm .form--element1 input {
+    width: 100%;
+    height: 100%;
+    background-color: #5c5c5ca9;
+    outline: none;
+    border: none;
+    color: #fff;
+    font-family: "Outfit";
+    font-size: 1rem;
+    padding: 3px;
+    text-indent: 5px;
+    border-radius: 12px;
+}
+
+.accountInfoPage .main--content .editAccountInfoSection form#editAccountForm .form--element2 button {
+    width: 80%;
+    height: 70%;
+    padding: 0 5px;
+    background-color: #ff6e7f;
+    color: #fff;
+    font-family: "Outfit";
+    font-size: 1.2rem;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all .35s ease-in-out;
+}
+
+.accountInfoPage .main--content .editAccountInfoSection form#editAccountForm .form--element2 button:hover {
+    background-color: #e8717f;
+    transition: all .35s ease-in-out;
+}
+
+.logoutButton {
+    width: 30%;
+    height: 70%;
+    padding: 0 5px;
+    background-color: #f6344bbd;
+    color: #fff;
+    font-family: "Outfit";
+    font-size: 1.2rem;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all .35s ease-in-out;
+}
+
+.logoutButton:hover {
+    background-color: #e71f2b;
+    transition: all .35s ease-in-out;
 }
 
 #accountInfo .container {

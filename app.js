@@ -29,6 +29,11 @@ const noAccount = document.querySelector(".noAccount");
 const haveAccount = document.querySelector(".haveAccount");
 const formOverLay = document.querySelector(".form--overlay");
 const loginButton = document.getElementById("loginButton");
+const editAccountInfo = document.getElementById("editAccountInfo")
+const orderHistoryTab = document.getElementById("orderHistoryTab");
+const accountInfoTab = document.getElementById("accountInfoTab");
+const orderHistoryList = document.getElementById("orderHistoryList");
+
 
 let counter = 0;
 let cartList = [];
@@ -60,8 +65,6 @@ document.querySelector(".logoutButton").addEventListener("click", () => {
     document.body.classList.remove("logged-in");
     document.getElementById("accountName").style.display = "none";
     window.location.reload(); // Reload the page to reflect changes
-  } else {
-    alert("You are still logged in!");
   }
 });
 
@@ -115,6 +118,89 @@ noAccount.addEventListener("click", () => {
     document.querySelector(".form--section").classList.add("switchToOther");
   }
 });
+
+// Fetch and display the user's email from backend
+async function setAccountEmail() {
+  try {
+    const username = localStorage.getItem("customerUsername");
+    if (!username) return;
+    const customers = await fetchCustomers();
+    const user = customers.find(c => c.username === username);
+    if (user && user.email && user.phone) {
+      document.getElementById("accountName1").innerText = `Username: ${username}`
+      document.getElementById("accountEmail").innerHTML = `Email: ${user.email}`;
+      document.getElementById("accountPhone").innerHTML = `Phone: ${user.phone}` || "None";
+      document.getElementById("editName").value = `${username}`
+      document.getElementById("editEmail").value = `${user.email}`;
+      document.getElementById("editPhone").value = `${user.phone}` || "None";
+      // alert("Hiii")
+    } else {
+      document.getElementById("accountEmail").value = "None";
+    }
+  } catch (err) {
+    document.getElementById("accountEmail").value = "Error";
+  }
+}
+setAccountEmail();
+
+document.getElementById("editAccountForm").addEventListener("submit", async function (e) {
+  e.preventDefault();
+  const username = document.getElementById("editName").value.trim();
+  const email = document.getElementById("editEmail").value.trim();
+  const phone = document.getElementById("editPhone").value.trim();
+  const message = document.getElementById("messageEdit");
+  message.textContent = "Updating account info...";
+  if (!username || !email || !phone) {
+    message.style.color = "red";
+    message.textContent = "Fill the fields";
+    return;
+  }
+  try {
+    const res = await fetch(`https://site-h33e.onrender.com/api/customers/update/${ await getCustomerIdByName(localStorage.getItem("customerUsername"))}`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ username, email, phone }),
+    });
+    const data = await res.json();
+    if (res.ok) {
+      message.style.color = "green";
+      message.textContent = "Account info updated successfully ✅";
+      localStorage.setItem("customerUsername", username);
+      document.getElementById("accountName1").innerText = `Username: ${username}`;
+      setAccountEmail(); // Refresh account info
+    } else {
+      message.style.color = "red";
+      message.textContent = data.message || "Update failed";
+    }
+  } catch (err) {
+    message.textContent = "Server error";
+    console.error(err);
+  }
+  document.querySelector(".editAccountInfoSection").classList.remove("active");
+});
+
+editAccountInfo.addEventListener("click", () => {
+  document.querySelector(".editAccountInfoSection").classList.add("active");
+});
+
+orderHistoryTab.addEventListener("click", () => {
+  document.querySelector(".orderHistoryContent").classList.add("active");
+  document.querySelector(".accountInfoContent").classList.remove("active");
+});
+
+accountInfoTab.addEventListener("click", () => {
+  document.querySelector(".orderHistoryContent").classList.remove("active");
+  document.querySelector(".accountInfoContent").classList.add("active");
+});
+
+if (orderHistoryList.children.length === 0) {
+  orderHistoryList.innerHTML = `
+    <ul class="no-orders">
+    <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e3e3e3"><path d="M480-120q-33 0-56.5-23.5T400-200v-560q0-33 23.5-56.5T480-840h280q33 0 56.5 23.5T840-760v560q0 33-23.5 56.5T760-120H480Zm0-80h280v-560H480v560Zm0-640h280v-80H480v80Zm0 640Z"/></svg>
+    <p>No orders found. Start shopping to see your order history!</p>
+    </ul>
+  `;
+}
 
 haveAccount.addEventListener("click", () => {
   if (window.innerWidth > 640) {
@@ -327,8 +413,29 @@ document.addEventListener("click", (e) => {
   ) {
     menu.classList.remove("item-show");
     menuBar.classList.toggle("actif");
+    document.querySelector(".accountInfoPage").classList.remove("show")
+  }
+  if (
+    !document.querySelector(".accountInfoPage").contains(e.target) &&
+    !document.querySelector(".accountInfo").contains(e.target) &&
+    document.querySelector(".accountInfoPage").classList.contains("show")
+  ) {
+    document.querySelector(".accountInfoPage").classList.remove("show");
+  }
+
+  if (
+    !document.querySelector(".editAccountInfoSection").contains(e.target) &&
+    !editAccountInfo.contains(e.target) &&
+    document.querySelector(".editAccountInfoSection").classList.contains("active")
+  ) {
+    document.querySelector(".editAccountInfoSection").classList.remove("active");
   }
 });
+
+document.getElementById("cancelEdit").addEventListener("click", () => {
+  document.querySelector(".editAccountInfoSection").classList.remove("active");
+});
+
 
 cartCloseButton.addEventListener("click", () => {
   inCart = false;

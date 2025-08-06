@@ -77,15 +77,61 @@
             </div>
         </div>
         <div class="accountInfoPage">
-            <div class="userInformation">
-                <div class="username"><p>Username:</p><span> David Abrampah</span></div>
-                <div class="email"><p>Email:</p><span> davipah27@gmail.com</span></div>
-                <div class="Phone"><p>PhoneNumber:</p><span> 0208154977</span></div>
+            <div class="tabarea">
+                <div class="tab" id="accountInfoTab">
+                    <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e3e3e3"><path d="M480-120v-80h280v-560H480v-80h280q33 0 56.5 23.5T840-760v560q0 33-23.5 56.5T760-120H480Zm-80-160-55-58 102-102H120v-80h327L345-622l55-58 200 200-200 200Z"/></svg>
+                    <span>Account Info</span>
+                </div>
+                <div class="tab" id="orderHistoryTab">
+                    <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e3e3e3"><path d="M240-120q-33 0-56.5-23.5T160-200v-560q0-33 23.5-56.5T240-840h480q33 0 56.5 23.5T800-760v560q0 33-23.5 56.5T720-120H240Zm0-80h480v-560H240v560Zm40-160h400v-80H280v80Zm0 160h400v-80H280v80Z"/></svg>
+                    <span>Order History</span>
+                </div>
             </div>
-            <div class="edit--section">
-                <button class="edit--button" title="Edit">Edit</button>
-                <button class="logoutButton" title="Logout">Logout</button>
+            <div class="main--content">
+                <div class="accountInfoContent active">
+                    <div class="accountInfoSection">
+                        <h2>Account Information</h2>
+                        <p id="accountName1"></p>
+                        <p id="accountEmail">Email :davipah27@gmail.com</p>
+                        <p id="accountPhone">Phone: +233 244458785</p>
+                        <div class="buttonsAccount">
+                            <button id="editAccountInfo">Edit</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="editAccountInfoSection">
+                    <h2>Edit Account Information</h2>
+                    <form id="editAccountForm">
+                        <div class="form--element1">
+                            <label for="editName">Name:</label>
+                            <input type="text" id="editName" name="name" required>
+                        </div>
+                        <div class="form--element1">
+                            <label for="editEmail">Email:</label>
+                            <input type="email" id="editEmail" name="email" required>
+                        </div>
+                        <div class="form--element1">
+                            <label for="editPhone">Phone:</label>
+                            <input type="tel" id="editPhone" name="phone" required>
+                        </div>
+                        <div class="messageEd"></div>
+                        <div class="form--element2">
+                            <button id="cancelEdit" type="button">Cancel</button>
+                            <button type="submit">Save Changes</button>
+                        </div>
+                    </form>
+
+                    <button id="deleteAccount">Delete Account</button>
+                </div>
+                <div class="orderHistoryContent">
+                    <h2>Order History</h2>
+                    <ul id="orderHistoryList"></ul>
+                    <a href="orderpage.html">Open all orders<svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e3e3e3"><path d="m256-240-56-56 384-384H240v-80h480v480h-80v-344L256-240Z"/></svg></a>
+                </div>
             </div>
+
+               <button class="logoutButton">Logout</button> 
+        </div>
         </div>
         <div class="cart" id="cart">
             <div class="container" id="cart--container">

@@ -46,6 +46,24 @@ router.post("/login", async (req, res) => {
   }
 });
 
+// Update customer information
+router.put("/update/:id", async (req, res) => {
+  try {
+    const { id } = req.params;
+    const { username, email, phone } = req.body;
+    const customer = await Customer.findById(id);
+    if (!customer) return res.status(404).json({ message: "Customer not found" });
+    customer.username = username || customer.username;
+    customer.email = email || customer.email;
+    customer.phone = phone || customer.phone;
+    await customer.save();
+    res.status(200).json({ message: "Customer updated successfully" });
+  } catch (err) {
+    console.error("🔥 UPDATE CUSTOMER ERROR:", err); // Show full error trace
+    res.status(500).json({ message: "Server error" });
+  }
+});
+
 router.post("/add-order/:id", async (req, res) => {
   try {
     const { id } = req.params;
