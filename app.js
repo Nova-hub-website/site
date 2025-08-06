@@ -159,7 +159,7 @@ document.getElementById("editAccountForm").addEventListener("submit", async func
   }
   try {
     const res = await fetch(`https://site-h33e.onrender.com/api/customers/update/${c}`, {
-      method: "POST",
+      method: "PUT",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ username, email, phone }),
     });
@@ -178,7 +178,11 @@ document.getElementById("editAccountForm").addEventListener("submit", async func
     message.textContent = "Server error";
     console.error(err);
   }
-  // document.querySelector(".editAccountInfoSection").classList.remove("active");
+  document.querySelector(".editAccountInfoSection").classList.remove("active");
+  setTimeout(() => {
+    message.textContent = ""; // Clear message after a delay
+  }, 3000);
+  window.location.reload(); // Reload the page to reflect changes
 });
 
 editAccountInfo.addEventListener("click", () => {

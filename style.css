@@ -670,7 +670,7 @@ body.logged-in #accountInfo {
 }
 
 .accountInfoPage .main--content .editAccountInfoSection.active {
-        display: grid;
+    display: grid;
     grid-template-rows: 3rem 1fr 50px;
     place-items: center;
     position: fixed;
@@ -680,6 +680,19 @@ body.logged-in #accountInfo {
     z-index: 1000;
     height: 60%;
     width: 60%;
+    max-width: 400px;
+    
+}
+
+.accountInfoPage .main--content .editAccountInfoSection::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.587);
+    z-index: -1;
 }
 
 #deleteAccount {
